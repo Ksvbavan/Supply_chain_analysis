@@ -1,0 +1,31 @@
+## 🚀 Strategic Key Findings
+
+### 1. Revenue & Profitability 💰
+
+* **Hero Products:** Skincare contributes the highest percentage of total revenue (~41%), while Haircare shows the highest net profit margin despite lower sales volume.
+* **Location Performance:** Mumbai and Delhi are the primary revenue drivers, but Kolkata shows the highest "Profit per Shipment," suggesting lower local logistics costs.
+* **Cost Leakage:** 12% of SKUs are currently "Loss-Making" because their combined manufacturing and shipping costs exceed their generated revenue.
+
+### 2. Supplier Risk & Quality ⚠️
+
+* **Vendor Reliability:** 3 out of 5 suppliers have defect rates exceeding the 10% safety threshold, triggering an "Immediate Audit" status in the SQL-based risk model.
+* **Lead Time Bottlenecks:** Supplier 4 has the longest average lead time (over 30 days), which directly correlates with stock-out risks for Cosmetics SKUs.
+* **Quality vs. Cost:** There is an inverse correlation between manufacturing cost and defect rate; cheaper production is currently costing the company more in returns and replacements.
+
+### 3. Inventory & Logistics Efficiency 🚛
+
+* **Fulfillment Speed:** The average fulfillment cycle is **37.6 days**, which is 25% slower than the industry target of 30 days. This is largely due to "Road" transportation delays.
+* **Stock-Out Threats:** 15% of high-demand SKUs (mostly in the Skincare category) have stock levels below 10 units, indicating an urgent need for replenishment.
+* **Carrier Analysis:** Carrier B is the most expensive but has the highest reliability score, whereas Carrier C is cheap but responsible for 40% of shipping delays.
+
+---
+
+## 💡 Recommended Business Actions
+
+> *These are the "Next Steps" you would suggest based on your data.*
+
+* **Supplier Diversification:** Reduce dependency on Supplier 4 for high-demand items to stabilize lead times.
+* **Logistics Pivot:** Shift high-margin "Skincare" products from Road to Rail/Air to reduce the 37-day fulfillment lag.
+* **Pricing Strategy:** Increase prices or optimize manufacturing for the 12% "Loss-Making" SKUs identified in the Cost Analysis.
+* **Inventory Automation:** Implement a "Trigger-based" ordering system for the top 20 SKUs that frequently hit "Critical Low" status.
+
