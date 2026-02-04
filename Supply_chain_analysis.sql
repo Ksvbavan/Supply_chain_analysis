@@ -1,0 +1,61 @@
+-- STEP 1: Tell MySQL which database to use
+USE supply_chain_db;
+
+-- STEP 2: Create the Executive View (Profit & Revenue)
+CREATE OR REPLACE VIEW vw_executive_summary AS 
+SELECT 
+    sku, 
+    product_type, 
+    location, 
+    revenue_generated, 
+    net_profit, 
+    ROUND((net_profit / revenue_generated) * 100, 2) AS profit_margin_pct, 
+    price, 
+    number_of_products_sold 
+FROM supply_chain_database;
+
+-- STEP 3: Create the Logistics View (Carrier Performance)
+CREATE OR REPLACE VIEW vw_logistics_performance AS
+SELECT 
+    sku,
+    shipping_carriers,
+    transportation_modes,
+    routes,
+    total_fulfillment_days,
+    shipping_costs,
+    CASE 
+        WHEN total_fulfillment_days > 40 THEN 'High Delay'
+        WHEN total_fulfillment_days BETWEEN 25 AND 40 THEN 'Average'
+        ELSE 'Fast Track'
+    END AS fulfillment_status
+FROM supply_chain_database;
+
+-- STEP 4: Create the Supplier Risk View
+CREATE OR REPLACE VIEW vw_supplier_risk AS
+SELECT 
+    supplier_name,
+    product_type,
+    defect_rates,
+    total_risk_score,
+    rel_score AS reliability_score,
+    CASE 
+        WHEN total_risk_score >= 7 THEN 'IMMEDIATE AUDIT'
+        WHEN total_risk_score >= 5 THEN 'MONITOR'
+        ELSE 'PREFERRED'
+    END AS supplier_status
+FROM supply_chain_database;
+
+-- STEP 5: Create the Inventory View
+CREATE OR REPLACE VIEW vw_inventory_status AS
+SELECT 
+    sku,
+    product_type,
+    stock_levels,
+    order_quantities,
+    turnover_proxy,
+    CASE 
+        WHEN stock_levels < 10 THEN 'CRITICAL LOW'
+        WHEN stock_levels < 25 THEN 'REORDER SOON'
+        ELSE 'OPTIMAL'
+    END AS stock_alert
+FROM supply_chain_database;
